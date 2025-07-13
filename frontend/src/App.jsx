@@ -26,7 +26,7 @@ function App() {
   const fetchImages = async () => {
     try {
       const res = await axios.get(
-        "https://camera-capture-app-5lx6.onrender.com/all-images"
+        "https://camera-capture-app-i6fd.onrender.com/all-images"
       );
       setAllImages(res.data);
     } catch (err) {
@@ -47,7 +47,7 @@ function App() {
 
     try {
       const res = await axios.post(
-        "https://camera-capture-app-5lx6.onrender.com/all-images",
+        "https://camera-capture-app-i6fd.onrender.com/all-images",
         {
           imageData,
         }
@@ -64,7 +64,7 @@ function App() {
   const deleteImage = async (filename) => {
     try {
       await axios.delete(
-        `https://camera-capture-app-5lx6.onrender.com/delete-image/${filename}`
+        `https://camera-capture-app-i6fd.onrender.com/delete-image/${filename}`
       );
       setAllImages((prev) => prev.filter((img) => img.filename !== filename));
     } catch (err) {
