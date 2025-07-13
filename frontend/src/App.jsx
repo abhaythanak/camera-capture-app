@@ -25,7 +25,9 @@ function App() {
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/all-images");
+      const res = await axios.get(
+        "https://camera-capture-app-5lx6.onrender.com/all-images"
+      );
       setAllImages(res.data);
     } catch (err) {
       console.error("Failed to fetch images:", err);
@@ -44,9 +46,12 @@ function App() {
     const imageData = canvas.toDataURL("image/png");
 
     try {
-      const res = await axios.post("http://localhost:5000/save-image", {
-        imageData,
-      });
+      const res = await axios.post(
+        "https://camera-capture-app-5lx6.onrender.com/all-images",
+        {
+          imageData,
+        }
+      );
       setAllImages((prev) => [
         ...prev,
         { filename: res.data.filename, url: res.data.imageUrl },
@@ -58,7 +63,9 @@ function App() {
 
   const deleteImage = async (filename) => {
     try {
-      await axios.delete(`http://localhost:5000/delete-image/${filename}`);
+      await axios.delete(
+        `https://camera-capture-app-5lx6.onrender.com/delete-image/${filename}`
+      );
       setAllImages((prev) => prev.filter((img) => img.filename !== filename));
     } catch (err) {
       console.error("Failed to delete image:", err);
