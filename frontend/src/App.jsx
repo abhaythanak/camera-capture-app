@@ -47,10 +47,8 @@ function App() {
 
     try {
       const res = await axios.post(
-        "https://camera-capture-app-i6fd.onrender.com/all-images",
-        {
-          imageData,
-        }
+        "https://camera-capture-app-i6fd.onrender.com/save-image",
+        { imageData }
       );
       setAllImages((prev) => [
         ...prev,
