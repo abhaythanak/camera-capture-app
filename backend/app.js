@@ -23,7 +23,7 @@ app.post("/save-image", (req, res) => {
 
   fs.writeFile(filePath, base64Data, "base64", (err) => {
     if (err) return res.status(500).send("Failed to save image");
-    const imageUrl = `http://localhost:5000/images/${filename}`;
+    const imageUrl = `https://camera-capture-app-i6fd.onrender.com/images/${filename}`;
     res.json({ message: "Image saved", imageUrl, filename });
   });
 });
@@ -36,7 +36,7 @@ app.get("/all-images", (req, res) => {
       .filter((file) => file.endsWith(".png"))
       .map((file) => ({
         filename: file,
-        url: `http://localhost:5000/images/${file}`,
+        url: `https://camera-capture-app-i6fd.onrender.com/images/${file}`,
       }));
     res.json(imageList);
   });
